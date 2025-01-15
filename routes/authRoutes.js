@@ -13,9 +13,6 @@ router.get('/logout', authController.logout_get);
 // router.post('/forgot-password', authController.forgot_password);
 // router.get('/reset-password/:token', authController.reset_password_get);
 // router.post('/reset-password/:token', authController.reset_password_post);
-
-
-
 router.get('/post', requireAuth, researchController.post_get);
 router.post('/post', requireAuth, upload.single('pdf'), researchController.post_paper);
 router.get('/view/:id', researchController.view_paper);
