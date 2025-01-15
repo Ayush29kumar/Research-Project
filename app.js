@@ -10,7 +10,7 @@ require('dotenv').config();
 const authRoutes = require('./routes/authRoutes');
 const researchRoutes = require('./routes/researchRoutes');
 const profileRoutes = require('./routes/profileRoutes');
-const { checkUser } = require('./middleware/authMiddleware');
+// const { checkUser } = require('./middleware/authMiddleware');
 const { render } = require('ejs');
 
 const app = express();
@@ -46,7 +46,7 @@ app.use(session({
 }));
 
 // Routes
-app.get('*', checkUser);
+// app.get('*', checkUser);
 app.use('/', authRoutes);
 app.use('/research', researchRoutes);
 app.use('/profile', profileRoutes);
