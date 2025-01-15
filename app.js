@@ -3,7 +3,11 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const cookieParser = require('cookie-parser');
+const morgan = require('morgan');
+const app = express();
 
+// Use the 'dev' preset for Morgan logging
+app.use(morgan('dev'));
 const path = require('path');
 require('dotenv').config();
 
@@ -13,7 +17,7 @@ const profileRoutes = require('./routes/profileRoutes');
 const { checkUser } = require('./middleware/authMiddleware');
 const { render } = require('ejs');
 
-const app = express();
+
 
 
 // Middleware
