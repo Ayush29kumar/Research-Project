@@ -10,7 +10,7 @@ require('dotenv').config();
 const authRoutes = require('./routes/authRoutes');
 const researchRoutes = require('./routes/researchRoutes');
 const profileRoutes = require('./routes/profileRoutes');
-// const { checkUser } = require('./middleware/authMiddleware');
+const { checkUser } = require('./middleware/authMiddleware');
 const { render } = require('ejs');
 
 const app = express();
@@ -46,9 +46,9 @@ app.use(session({
 }));
 
 // Routes
-// app.get('*', checkUser);
-// app.use('/', authRoutes);
-app.use('/', researchRoutes);
+app.get('*', checkUser);
+app.use('/', authRoutes);
+app.use('/research', researchRoutes);
 app.use('/profile', profileRoutes);
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
