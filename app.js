@@ -47,8 +47,8 @@ app.use(session({
 
 // Routes
 // app.get('*', checkUser);
-app.use('/', authRoutes);
-app.use('/research', researchRoutes);
+// app.use('/', authRoutes);
+app.use('/', researchRoutes);
 app.use('/profile', profileRoutes);
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
