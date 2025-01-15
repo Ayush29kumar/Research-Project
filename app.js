@@ -33,6 +33,8 @@ mongoose.connect(process.env.MONGODB_URI, {
 })
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.error('MongoDB connection error:', err));
+console.log(process.env.MONGODB_URI);  // To debug and make sure the value is correct
+
 
 // Session configuration
 app.use(session({
